@@ -13,7 +13,7 @@ function Test-BpaTriggerUri {
 }
 
 function Get-BpaRepositoryRoot {
-    return (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path
+    return (Resolve-Path (Join-Path $PSScriptRoot '../..')).Path
 }
 
 function Invoke-BpaPayloadValidation {
@@ -28,7 +28,7 @@ function Invoke-BpaPayloadValidation {
     }
 
     $repoRoot = Get-BpaRepositoryRoot
-    $schemaPath = Join-Path $repoRoot 'schema\ReleaseChangeV1.schema.json'
+    $schemaPath = Join-Path $repoRoot 'schema/ReleaseChangeV1.schema.json'
     $arguments = @(
         '-m', 'bpa_release_validate',
         '--quiet',
@@ -123,4 +123,3 @@ function Submit-BpaReleaseChange {
 }
 
 Export-ModuleMember -Function Submit-BpaReleaseChange
-

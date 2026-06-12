@@ -1,7 +1,7 @@
 BeforeAll {
-    $script:RepoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path
-    $script:ModulePath = Join-Path $RepoRoot 'src\SubmitBpaReleaseChange\SubmitBpaReleaseChange.psd1'
-    $script:SamplePath = Join-Path $RepoRoot 'samples\release-change-workflow.json'
+    $script:RepoRoot = (Resolve-Path (Join-Path $PSScriptRoot '../..')).Path
+    $script:ModulePath = Join-Path $RepoRoot 'src/SubmitBpaReleaseChange/SubmitBpaReleaseChange.psd1'
+    $script:SamplePath = Join-Path $RepoRoot 'samples/release-change-workflow.json'
     Import-Module $ModulePath -Force
 
     function Start-LocalMock {
@@ -9,7 +9,7 @@ BeforeAll {
 
         $capture = Join-Path $TestDrive "capture-$([guid]::NewGuid().ToString('N')).json"
         $portFile = Join-Path $TestDrive "port-$([guid]::NewGuid().ToString('N')).txt"
-        $scriptPath = Join-Path $RepoRoot 'tests\helpers\mock_trigger.py'
+        $scriptPath = Join-Path $RepoRoot 'tests/helpers/mock_trigger.py'
         $python = (Get-Command python -ErrorAction Stop).Source
         $startInfo = [Diagnostics.ProcessStartInfo]::new()
         $startInfo.FileName = $python
