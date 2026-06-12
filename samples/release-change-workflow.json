@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "1.0",
+  "releaseId": "RN-SYNTH-0001",
+  "timestamp": "2026-06-12T08:00:00Z",
+  "source": {
+    "system": "Synthetic Workflow Studio",
+    "method": "cli",
+    "actorType": "agent"
+  },
+  "environment": "test",
+  "changeType": "workflow",
+  "component": {
+    "id": "WF-SYNTH-ORDER-APPROVAL",
+    "name": "Synthetic Order Approval",
+    "type": "approval workflow"
+  },
+  "businessReason": "Reduce manual routing delays for synthetic order approvals.",
+  "beforeEvidence": [
+    {
+      "kind": "snapshot",
+      "label": "Workflow definition before change",
+      "artifactRef": "artifact://synthetic/workflow/before.json",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    }
+  ],
+  "afterEvidence": [
+    {
+      "kind": "snapshot",
+      "label": "Workflow definition after change",
+      "artifactRef": "artifact://synthetic/workflow/after.json",
+      "sha256": "2222222222222222222222222222222222222222222222222222222222222222"
+    },
+    {
+      "kind": "diff",
+      "label": "Normalized workflow difference",
+      "artifactRef": "artifact://synthetic/workflow/change.diff",
+      "sha256": "3333333333333333333333333333333333333333333333333333333333333333"
+    }
+  ],
+  "testEvidence": [
+    {
+      "name": "Approval routing test",
+      "status": "passed",
+      "summary": "The synthetic request reached both configured approval stages.",
+      "artifactRef": "artifact://synthetic/tests/routing-result.json"
+    }
+  ],
+  "impact": {
+    "audience": [
+      "Synthetic requesters",
+      "Synthetic approvers"
+    ],
+    "summary": "Requests now route through two approval stages with clearer status messages.",
+    "downtimeExpected": false
+  },
+  "risk": {
+    "level": "medium",
+    "reasons": [
+      "Approval routing behavior changes for all synthetic test requests."
+    ]
+  },
+  "rollback": {
+    "available": true,
+    "plan": "Restore the prior synthetic workflow snapshot and rerun the routing test.",
+    "ownerRole": "Workflow maintainer",
+    "estimatedMinutes": 15
+  },
+  "changeHash": "fe672a80ea16c69f2cda2fec74f3f5896cba26448e2eafd800976dcc1a134e1c",
+  "metadata": {
+    "demoScenario": "hackathon-public-sample"
+  }
+}
