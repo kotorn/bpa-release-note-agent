@@ -1,0 +1,8 @@
+1 Governed release communication is now a working system.
+2 One contract makes every change verifiable.
+3 Invalid and duplicate changes stop before damage.
+4 Approval controls publication.
+5 Approved notes become reusable knowledge.
+6 Work IQ adds context without overriding evidence.
+7 The critical paths passed.
+8 The public reference is clean and reproducible.

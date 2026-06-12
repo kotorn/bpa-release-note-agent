@@ -1,2 +1,7 @@
 title = "BPA Release Note Agent gitleaks configuration"
 
+[allowlist]
+description = "Ignore local browser-state captures that are not part of the submission package."
+paths = [
+  '''(^|[\\/])\.playwright-cli([\\/]|$)'''
+]

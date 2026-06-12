@@ -12,11 +12,13 @@ organization data or requiring access to a Microsoft tenant.
 - `Submit-BpaReleaseChange` PowerShell module
 - Loopback-only HTTP trigger mock and offline tests
 - Synthetic User Note and Developer Note examples
+- Sanitized Flow, Agent, Microsoft IQ, and demo documentation
+- SharePoint mapping, video script, and submission checklist
 - Privacy, gitleaks, Python, and Pester verification gates
 
-Note generation and tenant deployment are intentionally outside this public
-acceptance scope. The schema and submission boundary are the reusable building
-blocks demonstrated here.
+Tenant credentials and deployment artifacts remain private. Sanitized
+implementation evidence is summarized in
+[docs/implementation-status.md](docs/implementation-status.md).
 
 ## Architecture
 
@@ -26,17 +28,20 @@ flowchart LR
     B --> C["ReleaseChangeV1 payload"]
     C --> D["Python validator"]
     D --> E["Submit-BpaReleaseChange"]
-    E --> F["HTTP trigger"]
-    F --> G["Copilot Studio release agent"]
+    E --> F["Power Automate intake"]
+    F --> G["Duplicate and Needs Input gates"]
     G --> H["Human approval"]
-    H --> I["Release register and notes"]
-    I --> J["Microsoft 365 Copilot with Work IQ"]
-    K["Duplicate hash registry"] --> D
+    H --> I["Approved SharePoint notes"]
+    I --> J["Copilot Studio Q&A with citations"]
+    K["Copilot Studio structured drafting"] --> F
+    L["Work IQ actions"] --> J
+    M["Duplicate hash registry"] --> D
 ```
 
-The public tests replace the HTTP trigger with a loopback mock. Production
-authentication, approval policy, and storage choices remain explicit open
-questions.
+The public tests replace the HTTP trigger with a loopback mock. See
+[docs/architecture.mmd](docs/architecture.mmd),
+[docs/flow-contract.md](docs/flow-contract.md), and
+[docs/microsoft-iq.md](docs/microsoft-iq.md) for the sanitized enterprise path.
 
 ## Setup
 
@@ -108,30 +113,16 @@ or request headers.
   sanitizing or rewriting a private repository.
 - Runtime tests communicate only with `127.0.0.1`.
 
-## Five-Minute Demo Script
+## Five-Minute Demo
 
-**0:00-0:35 - Problem.** Explain that release communication is often assembled
-manually and can omit evidence, impact, tests, or rollback information.
+Use [docs/demo-runsheet.md](docs/demo-runsheet.md). It covers the validated
+payload, approval, three published notes, Agent Q&A, Work IQ evidence, and CI
+without exposing tenant details.
 
-**0:35-1:20 - Contract.** Open `ReleaseChangeV1.schema.json` and highlight the
-before/after evidence, test evidence, risk, rollback, and canonical hash.
-
-**1:20-2:05 - Validation.** Run the validator against the synthetic sample,
-then show an invalid copy returning exit code `2` and a duplicate batch
-returning exit code `3`.
-
-**2:05-3:00 - Submission.** Run the Pester success test. Show that the
-PowerShell module validates first and posts only to the local trigger mock.
-
-**3:00-3:45 - Communication.** Open the matching User Note and Developer Note,
-pointing out their shared release ID and change hash.
-
-**3:45-4:30 - Enterprise architecture.** Walk through the Mermaid diagram,
-including Copilot Studio, approval, release storage, Microsoft 365 Copilot,
-and Work IQ.
-
-**4:30-5:00 - Reliability.** Run `verify.ps1`, show zero privacy or gitleaks
-findings, and finish on the passing GitHub Actions workflow.
+The presentation support files live in
+[docs/video-script.md](docs/video-script.md),
+[docs/sharepoint-mapping.md](docs/sharepoint-mapping.md), and
+[docs/submission-checklist.md](docs/submission-checklist.md).
 
 ## Open Production Decisions
 
@@ -142,4 +133,3 @@ policy.
 ## License
 
 MIT
-

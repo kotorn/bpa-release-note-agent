@@ -1,0 +1,16 @@
+flowchart LR
+    A["UI, CLI, or agent change"] --> B["Evidence collector"]
+    B --> C["ReleaseChangeV1 payload"]
+    C --> D["Canonical schema and hash validator"]
+    D --> E["PowerShell submission boundary"]
+    E --> F["Power Automate intake flow"]
+    F --> G{"Duplicate or needs input?"}
+    G -->|"Duplicate"| H["Return existing release"]
+    G -->|"Needs input"| I["Draft register item"]
+    G -->|"Ready"| J["Human approval"]
+    J -->|"Approved"| K["Publish three Markdown notes"]
+    J -->|"Rejected"| L["Return item to Draft"]
+    K --> M["Approved SharePoint knowledge"]
+    M --> N["Copilot Studio Q&A with citations"]
+    O["Work IQ actions"] --> N
+    P["Copilot Studio structured drafting"] --> F

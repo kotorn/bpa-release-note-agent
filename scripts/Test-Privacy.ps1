@@ -22,6 +22,9 @@ try {
 
     $violations = @()
     foreach ($relativePath in $files) {
+        if ($relativePath -match '(^|[\\/])\.playwright-cli([\\/]|$)') {
+            continue
+        }
         $path = Join-Path $repoRoot $relativePath
         if (-not (Test-Path -LiteralPath $path -PathType Leaf)) {
             continue

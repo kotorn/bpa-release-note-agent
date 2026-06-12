@@ -15,8 +15,19 @@ try {
         'samples/release-change-workflow.json',
         'samples/user-note.md',
         'samples/developer-note.md',
+        'docs/architecture.mmd',
+        'docs/agent-instructions.md',
+        'docs/demo-runsheet.md',
+        'docs/flow-contract.md',
+        'docs/implementation-status.md',
+        'docs/microsoft-iq.md',
+        'docs/sharepoint-mapping.md',
+        'docs/submission-checklist.md',
+        'docs/video-script.md',
         'tests/python/test_validator.py',
         'tests/powershell/SubmitBpaReleaseChange.Tests.ps1',
+        'scripts/privacy-scan.ps1',
+        'CODEX-FINAL-REPORT.md',
         '.github/workflows/verify.yml'
     )
     foreach ($file in $requiredFiles) {
@@ -26,7 +37,7 @@ try {
     }
     Write-Host 'Required files passed.' -ForegroundColor Green
 
-    & (Join-Path $PSScriptRoot 'Test-Privacy.ps1')
+    & (Join-Path $PSScriptRoot 'privacy-scan.ps1')
 
     $env:PYTHONPATH = Join-Path $repoRoot 'src'
     python -m unittest discover -s tests/python -p 'test_*.py' -v

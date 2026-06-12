@@ -1,0 +1,4 @@
+task mode: create
+primary deck-profile: engineering-platform
+proof objects: contract, workflow, test evidence, governance
+QA gates: readable at 1280x720; synthetic only; no tenant identifiers
