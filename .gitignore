@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+TestResults/
+artifacts/
+.playwright-cli/
+*.tmp
+*.log
+
+# Private working area — contains tenant IDs, never commit
+CLAUDE.md
+_private/
