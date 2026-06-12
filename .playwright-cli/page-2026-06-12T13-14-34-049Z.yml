@@ -1,0 +1,37 @@
+- generic [ref=e5]:
+  - img "Organization background image" [ref=e6]
+  - generic [ref=e7]:
+    - generic [ref=e13]:
+      - img "Microsoft" [ref=e16]
+      - main [ref=e17]:
+        - generic [ref=e20]:
+          - heading "Pick an account" [level=1] [ref=e24]
+          - list "Pick an account" [ref=e27]:
+            - listitem [ref=e29] [cursor=pointer]:
+              - button "Sign in with TChangthong_A@ak-int.net work or school account." [active] [ref=e30]:
+                - generic [ref=e33]:
+                  - generic [ref=e34]: Thaweekarn Changthong Admin
+                  - generic [ref=e35]: TChangthong_A@ak-int.net
+                  - generic [ref=e36]: Connected to Windows
+            - listitem [ref=e38] [cursor=pointer]:
+              - button "Sign in with thaweekarn.changthong@it.asahi-kasei.com work or school account." [ref=e39]:
+                - generic [ref=e42]:
+                  - generic [ref=e43]: Changthong, Thaweekarn (นายทวีกาญจน์ ช้างทอง)
+                  - generic [ref=e44]: thaweekarn.changthong@it.asahi-kasei.com
+                  - generic [ref=e45]: Connected to Windows
+            - listitem [ref=e47] [cursor=pointer]:
+              - button "Sign in with svc_spolworkflow@ak-int.net work or school account." [ref=e48]:
+                - generic [ref=e51]:
+                  - generic [ref=e52]: svc_spolworkflow
+                  - generic [ref=e53]: svc_spolworkflow@ak-int.net
+                  - generic [ref=e54]: Connected to Windows
+            - listitem [ref=e55] [cursor=pointer]:
+              - button "Use another account" [ref=e56]:
+                - generic [ref=e60]: Use another account
+    - contentinfo [ref=e61]:
+      - generic [ref=e62]:
+        - link "Terms of use" [ref=e63] [cursor=pointer]:
+          - /url: https://www.microsoft.com/en-US/servicesagreement/
+        - link "Privacy & cookies" [ref=e64] [cursor=pointer]:
+          - /url: https://privacy.microsoft.com/en-US/privacystatement
+        - button "Click here for troubleshooting information" [ref=e65] [cursor=pointer]: ...

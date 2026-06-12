@@ -8,3 +8,7 @@ TestResults/
 artifacts/
 *.tmp
 *.log
+
+# Private working area — contains tenant IDs, never commit
+CLAUDE.md
+_private/
